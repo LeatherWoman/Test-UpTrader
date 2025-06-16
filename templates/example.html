@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page_title }} - Пример сайта</title>
+    <style>
+        .menu ul { list-style: none; padding-left: 20px; }
+        .menu li { margin: 5px 0; }
+        .menu li.expanded > ul { display: block; }
+        .menu li:not(.expanded) > ul { display: none; }
+        .menu li.active > a { font-weight: bold; color: #d00; }
+        .menu a { text-decoration: none; color: #333; }
+        .menu a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        {% load menu_tags %}
+        {% draw_menu 'main' %}
+    </nav>
+    
+    <main>
+        <h1>{{ page_title }}</h1>
+        <p>Текущий путь: {{ request.path }}</p>
+        <p>Пример контента страницы...</p>
+    </main>
+</body>
+</html>
